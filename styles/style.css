@@ -1,0 +1,94 @@
+/* core */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    /* font-family: 'Permanent Marker', cursive; */
+    min-height: 100%;
+    position: relative;
+}
+body{
+    background-color: #F0EEF1;
+    color: #000;
+    margin-bottom: 100px;
+}
+
+/* header */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8rem;
+    padding: 0 2rem;
+    background-color: #FFFBFB;
+}
+header .sun-mode{
+    border: solid 0.1rem black;
+    padding: 1rem 1.4rem;
+    border-radius: 100%;
+    font-size: 1.5em;
+}
+header .sun-mode:hover{
+    border-color: #F0E100;
+    cursor: pointer;
+    color: #F0E100;
+}
+
+/* main */
+main{
+    padding: 2rem;
+    text-align: center;
+}
+main .btn-add{
+    font-size: 1.8em;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.8rem;
+    border: none;
+    font-weight: bold;
+}
+main .btn-add:hover{
+    background-color: #D7D7D7;
+    cursor: pointer;
+}
+
+/* .grid */
+.grid{
+    margin-top: 2rem;
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    grid-gap: 1.75rem;
+}
+.grid div{
+    text-align: left;
+    background-color: #FFFBFB;
+    padding: 3rem;
+    border-radius: 0.8rem;
+}
+.grid div:hover{
+    background-color: #D7D7D7;
+}
+
+/* footer */
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a{
+    text-decoration: none;
+    color: #000;
+    border: solid 0.3rem transparent;
+}
+footer a:hover{
+    color: #F0E100;
+    border-bottom-color: #F0E100;
+}
+
+/* media queries */
