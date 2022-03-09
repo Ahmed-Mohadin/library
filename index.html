@@ -15,75 +15,76 @@
     <main>
         <button class="btn btn-add">+ Add book</button>
         <div class="grid">
-            <div>
-                <h1>Book: John Doe</h1>
-                <h1>Author: John Doe</h1>
-                <h1>Date: 2021/01/01</h1>
-                <h1>Status: Read</h1>
+            <div class="grid-book">
+                <h2>Book Title</h2>
+                <h3>Book Author</h3>
+                <h4>Book Pages</h4>
+                <button class="btn btn-status">Status</button>
+                <button class="btn btn-remove">Remove</button>
             </div>
-            <div>
-                <h1>Book: John Doe</h1>
-                <h1>Author: John Doe</h1>
-                <h1>Date: 2021/01/01</h1>
-                <h1>Status: Read</h1>
+            <div class="grid-book">
+                <h2>Book Title</h2>
+                <h3>Book Author</h3>
+                <h4>Book Pages</h4>
+                <button class="btn btn-status">Status</button>
+                <button class="btn btn-remove">Remove</button>
             </div>
-            <div>
-                <h1>Book: John Doe</h1>
-                <h1>Author: John Doe</h1>
-                <h1>Date: 2021/01/01</h1>
-                <h1>Status: Read</h1>
+            <div class="grid-book">
+                <h2>Book Title</h2>
+                <h3>Book Author</h3>
+                <h4>Book Pages</h4>
+                <button class="btn btn-status">Status</button>
+                <button class="btn btn-remove">Remove</button>
             </div>
-            <div>
-                <h1>Book: John Doe</h1>
-                <h1>Author: John Doe</h1>
-                <h1>Date: 2021/01/01</h1>
-                <h1>Status: Read</h1>
+            <div class="grid-book">
+                <h2>Book Title</h2>
+                <h3>Book Author</h3>
+                <h4>Book Pages</h4>
+                <button class="btn btn-status">Status</button>
+                <button class="btn btn-remove">Remove</button>
             </div>
-            <div>
-                <h1>Book: John Doe</h1>
-                <h1>Author: John Doe</h1>
-                <h1>Date: 2021/01/01</h1>
-                <h1>Status: Read</h1>
-            </div>
-            <div>
-                <h1>Book: John Doe</h1>
-                <h1>Author: John Doe</h1>
-                <h1>Date: 2021/01/01</h1>
-                <h1>Status: Read</h1>
-            </div>
-            <div>
-                <h1>Book: John Doe</h1>
-                <h1>Author: John Doe</h1>
-                <h1>Date: 2021/01/01</h1>
-                <h1>Status: Read</h1>
-            </div>
-            <div>
-                <h1>Book: John Doe</h1>
-                <h1>Author: John Doe</h1>
-                <h1>Date: 2021/01/01</h1>
-                <h1>Status: Read</h1>
-            </div>
-            <div>
-                <h1>Book: John Doe</h1>
-                <h1>Author: John Doe</h1>
-                <h1>Date: 2021/01/01</h1>
-                <h1>Status: Read</h1>
-            </div>
-            <div>
-                <h1>Book: John Doe</h1>
-                <h1>Author: John Doe</h1>
-                <h1>Date: 2021/01/01</h1>
-                <h1>Status: Read</h1>
-            </div>
-            <div>
-                <h1>Book: John Doe</h1>
-                <h1>Author: John Doe</h1>
-                <h1>Date: 2021/01/01</h1>
-                <h1>Status: Read</h1>
-            </div>
-            
         </div>
     </main>
+    <aside class="not-active">
+        <form class="book-form ">
+            <h3>Add New Book</h3>
+
+            <input 
+                type="text" 
+                name="book-title" 
+                id="book-title" 
+                placeholder="Title" 
+                maxlength="75"
+                required 
+            />
+
+            <input 
+                type="text" 
+                name="book-author" 
+                id="book-author" 
+                placeholder="Author" 
+                maxlength="75"
+                required 
+            />
+
+            <input 
+                type="number" 
+                name="book-pages" 
+                id="book-pages" 
+                placeholder="Pages" 
+                min="0" 
+                max="9999"
+                required 
+            />
+           
+            <div class="book-status">
+                <label for="book-status">Have you read the book?</label>
+                <input type="checkbox" name="book-status" id="book-status"  value="read">    
+            </div>
+            
+            <button type="submit" class="btn btn-submit">Sumbit</button>
+        </form>
+    </aside>
     <footer>
         <p>
             Built by

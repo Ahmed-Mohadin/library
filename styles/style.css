@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 html{
-    /* font-family: 'Permanent Marker', cursive; */
+    font-family: sans-serif;
     min-height: 100%;
     position: relative;
 }
@@ -41,15 +41,21 @@ main{
     padding: 2rem;
     text-align: center;
 }
-main .btn-add{
+main .btn-add:hover{
+    background-color: #D7D7D7;
+}
+
+/* .btn */
+.btn{
     font-size: 1.8em;
     padding: 0.7rem 1.5rem;
     border-radius: 0.8rem;
     border: none;
+    outline: none;
     font-weight: bold;
+    font-family: sans-serif;
 }
-main .btn-add:hover{
-    background-color: #D7D7D7;
+.btn:hover{
     cursor: pointer;
 }
 
@@ -57,17 +63,107 @@ main .btn-add:hover{
 .grid{
     margin-top: 2rem;
     display: grid;
-    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 1.75rem;
 }
 .grid div{
-    text-align: left;
     background-color: #FFFBFB;
     padding: 3rem;
     border-radius: 0.8rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0.4rem 0.4rem 0.4rem;
 }
-.grid div:hover{
-    background-color: #D7D7D7;
+.grid div h2{
+    font-size: 2em;
+}
+.grid .grid-book{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.grid .grid-book .btn{
+    font-size: 1.2em;
+    color: #FFF;
+    background-color: rgba(96, 88, 86, 0.8);
+}
+.grid .grid-book .btn:hover{
+    background-color: #605856;
+}
+
+.status-read{
+    background-color: rgba(114, 176, 29, 0.8);
+}
+status-read:hover{
+    background-color: #72B01D;
+}
+.status-notread{
+    background-color: rgb(219, 58, 52, 0.8);
+}
+status-notread:hover{
+    background-color: #DB3A34;
+}
+
+/* form */
+aside{
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: #FFFBFB;
+    padding: 2rem;
+    width: 20rem;
+    border-radius: 0.8rem;
+}
+form h3{
+    font-size: 1.4em;
+}
+form > input{
+    background-color: #F0EEF1;
+    border: none;
+    font-family: sans-serif;
+    outline: none;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 0.4rem;
+}
+form input::placeholder{
+    font-size: 1.2em;
+}
+form .book-status{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+form .book-status > input{
+    transform: scale(1.5);
+    outline: none;
+    border: none;
+}
+form .btn-submit{
+    font-size: 1.2em;
+    background-color: rgba(97, 231, 134, 0.8);
+    color: #FFF;
+}
+form .btn-submit:hover{
+    background-color: #61E786;
+}
+
+.not-active{
+    display: none;
+}
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* footer */
@@ -87,8 +183,25 @@ footer a{
     border: solid 0.3rem transparent;
 }
 footer a:hover{
-    color: #F0E100;
-    border-bottom-color: #F0E100;
+    color: #F3817D;
+    border-bottom-color: #F3817D;
 }
 
 /* media queries */
+@media (max-width: 800px){
+    /* .grid */
+    .grid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 426px){
+    /* .grid */
+    .grid{
+        grid-template-columns: 1fr;
+    }
+
+    /* form */
+    form{
+        width: 17.5rem;
+    }  
+}
