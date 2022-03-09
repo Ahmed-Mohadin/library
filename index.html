@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css" type="text/css">
+    <title>Library</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">Library</h1>
+        <span class="sun-mode">&#9728;</span>
+    </header>
+    <main>
+        <button class="btn btn-add">+ Add book</button>
+        <div class="grid">
+            <div class="grid-book">
+                <h2>Book Title</h2>
+                <h3>Book Author</h3>
+                <h4>Book Pages</h4>
+                <button class="btn btn-status">Status</button>
+                <button class="btn btn-remove">Remove</button>
+            </div>
+            <div class="grid-book">
+                <h2>Book Title</h2>
+                <h3>Book Author</h3>
+                <h4>Book Pages</h4>
+                <button class="btn btn-status">Status</button>
+                <button class="btn btn-remove">Remove</button>
+            </div>
+            <div class="grid-book">
+                <h2>Book Title</h2>
+                <h3>Book Author</h3>
+                <h4>Book Pages</h4>
+                <button class="btn btn-status">Status</button>
+                <button class="btn btn-remove">Remove</button>
+            </div>
+            <div class="grid-book">
+                <h2>Book Title</h2>
+                <h3>Book Author</h3>
+                <h4>Book Pages</h4>
+                <button class="btn btn-status">Status</button>
+                <button class="btn btn-remove">Remove</button>
+            </div>
+        </div>
+    </main>
+    <aside class="not-active">
+        <form class="book-form ">
+            <h3>Add New Book</h3>
+
+            <input 
+                type="text" 
+                name="book-title" 
+                id="book-title" 
+                placeholder="Title" 
+                maxlength="75"
+                required 
+            />
+
+            <input 
+                type="text" 
+                name="book-author" 
+                id="book-author" 
+                placeholder="Author" 
+                maxlength="75"
+                required 
+            />
+
+            <input 
+                type="number" 
+                name="book-pages" 
+                id="book-pages" 
+                placeholder="Pages" 
+                min="0" 
+                max="9999"
+                required 
+            />
+           
+            <div class="book-status">
+                <label for="book-status">Have you read the book?</label>
+                <input type="checkbox" name="book-status" id="book-status"  value="read">    
+            </div>
+            
+            <button type="submit" class="btn btn-submit">Sumbit</button>
+        </form>
+    </aside>
+    <footer>
+        <p>
+            Built by
+            <a class="footer-link" href="https://github.com/Ahmed-Mohadin/" target="_blank">Ahmed Mohadin</a>
+            |
+            <a class="footer-link" href="https://github.com/Ahmed-Mohadin/library" target="_blank">Source</a>
+        </p>
+    </footer>
+    <script src="scripts/scripts.js"></script>
+</body>
+</html>
