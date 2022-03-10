@@ -25,13 +25,12 @@ header{
     background-color: #FFFBFB;
 }
 header .sun-mode{
-    border: solid 0.1rem black;
+    border: solid 0.1rem #F0E100;
     padding: 1rem 1.4rem;
     border-radius: 100%;
     font-size: 1.5em;
 }
 header .sun-mode:hover{
-    border-color: #F0E100;
     cursor: pointer;
     color: #F0E100;
 }
@@ -54,6 +53,7 @@ main .btn-add:hover{
     outline: none;
     font-weight: bold;
     font-family: sans-serif;
+    background-color: transparent;
 }
 .btn:hover{
     cursor: pointer;
@@ -131,11 +131,14 @@ form > input{
     font-family: sans-serif;
     outline: none;
     width: 100%;
+    font-weight: bold;
     padding: 0.8rem;
+    font-size: 1.05em;
     border-radius: 0.4rem;
 }
 form input::placeholder{
-    font-size: 1.2em;
+    font-size: 1.05em;
+    font-weight: bold;
 }
 form .book-status{
     display: flex;
@@ -188,13 +191,13 @@ footer a:hover{
 }
 
 /* media queries */
-@media (max-width: 800px){
+@media (max-width: 920px){
     /* .grid */
     .grid{
         grid-template-columns: 1fr 1fr;
     }
 }
-@media (max-width: 426px){
+@media (max-width: 610px){
     /* .grid */
     .grid{
         grid-template-columns: 1fr;
