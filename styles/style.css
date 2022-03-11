@@ -66,13 +66,21 @@ main .btn-add:hover{
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1.75rem;
 }
-.grid div{
+.grid .grid-book{
     background-color: #FFFBFB;
     padding: 3rem;
     border-radius: 0.8rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0.4rem 0.4rem 0.4rem;
 }
-.grid div h2{
+.grid .dark{
+    background-color: #333333;
+    color: #FFF;
+}
+.grid .light{
+    background-color: #FFFBFB;
+    color: #000;    
+}
+.grid .grid-book h2{
     font-size: 2em;
 }
 .grid .grid-book{
@@ -89,16 +97,16 @@ main .btn-add:hover{
     background-color: #605856;
 }
 
-.status-read{
+.grid .grid-book .status-read{
     background-color: rgba(114, 176, 29, 0.8);
 }
-status-read:hover{
+.grid .grid-book .status-read:hover{
     background-color: #72B01D;
 }
-.status-notread{
+.grid .grid-book .status-notread{
     background-color: rgb(219, 58, 52, 0.8);
 }
-status-notread:hover{
+.grid .grid-book .status-notread:hover{
     background-color: #DB3A34;
 }
 
