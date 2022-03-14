@@ -25,13 +25,12 @@ header{
     background-color: #FFFBFB;
 }
 header .sun-mode{
-    border: solid 0.1rem black;
+    border: solid 0.1rem #F0E100;
     padding: 1rem 1.4rem;
     border-radius: 100%;
     font-size: 1.5em;
 }
 header .sun-mode:hover{
-    border-color: #F0E100;
     cursor: pointer;
     color: #F0E100;
 }
@@ -54,8 +53,7 @@ main .btn-add:hover{
     outline: none;
     font-weight: bold;
     font-family: sans-serif;
-}
-.btn:hover{
+    background-color: transparent;
     cursor: pointer;
 }
 
@@ -66,13 +64,21 @@ main .btn-add:hover{
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1.75rem;
 }
-.grid div{
+.grid .grid-book{
     background-color: #FFFBFB;
     padding: 3rem;
     border-radius: 0.8rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0.4rem 0.4rem 0.4rem;
 }
-.grid div h2{
+.grid .dark{
+    background-color: #333333;
+    color: #FFF;
+}
+.grid .light{
+    background-color: #FFFBFB;
+    color: #000;    
+}
+.grid .grid-book h2{
     font-size: 2em;
 }
 .grid .grid-book{
@@ -88,17 +94,16 @@ main .btn-add:hover{
 .grid .grid-book .btn:hover{
     background-color: #605856;
 }
-
-.status-read{
+.grid .grid-book .status-read{
     background-color: rgba(114, 176, 29, 0.8);
 }
-status-read:hover{
+.grid .grid-book .status-read:hover{
     background-color: #72B01D;
 }
-.status-notread{
+.grid .grid-book .status-notread{
     background-color: rgb(219, 58, 52, 0.8);
 }
-status-notread:hover{
+.grid .grid-book .status-notread:hover{
     background-color: #DB3A34;
 }
 
@@ -124,6 +129,12 @@ form{
 }
 form h3{
     font-size: 1.4em;
+    text-align: center;
+}
+form .err-msg{
+    text-align: center;
+    color: #DB241E;
+    font-weight: bold;
 }
 form > input{
     background-color: #F0EEF1;
@@ -131,11 +142,14 @@ form > input{
     font-family: sans-serif;
     outline: none;
     width: 100%;
+    font-weight: bold;
     padding: 0.8rem;
+    font-size: 1.05em;
     border-radius: 0.4rem;
 }
 form input::placeholder{
-    font-size: 1.2em;
+    font-size: 1.05em;
+    font-weight: bold;
 }
 form .book-status{
     display: flex;
@@ -188,13 +202,13 @@ footer a:hover{
 }
 
 /* media queries */
-@media (max-width: 800px){
+@media (max-width: 920px){
     /* .grid */
     .grid{
         grid-template-columns: 1fr 1fr;
     }
 }
-@media (max-width: 426px){
+@media (max-width: 610px){
     /* .grid */
     .grid{
         grid-template-columns: 1fr;
