@@ -13,6 +13,7 @@ class Book {
 class Library {
     constructor(){
         this.collection = [];
+        this.isDark = false;
     }
 
     addBook(newBook){
@@ -30,6 +31,21 @@ class Library {
     getBook(id){
         return this.collection.find((book) => book.id == id);
     }
+
+    
+    saveLocal(){
+        const data = [this.collection, this.isDark];
+        const myData = JSON.stringify(data);
+        localStorage.setItem("myData", myData);
+    }
+    
+    restoreLocal(){
+        const myData = JSON.parse(localStorage.getItem('myData'));
+        this.collection = myData[0];
+        this.isDark = myData[1];
+        if(this.collection === null) this.collection = [];
+        if(this.isDark === null) this.isDark = false;
+    }
 }
 
 // Get all necessary DOM nodes
@@ -45,13 +61,15 @@ const aside = document.querySelector('aside');
 
 // Declare necessary variables
 const library = new Library();
-let isDark = false;
+library.restoreLocal();
+library.isDark ? darkMode(header, body) : lightMode(header, body);
 
 // Handle wether the user wants dark/lightmode
 sunMode.addEventListener('click', handleMode);
-
+    
 function handleMode(){
-    isDark ? lightMode(header, body) : darkMode(header, body);
+    library.saveLocal();
+    library.isDark ? lightMode(header, body) : darkMode(header, body);
     showBooks();
 }
 
@@ -65,7 +83,7 @@ function darkMode(header, body){
     });
     bookForm.style.backgroundColor = '#333333';
     bookForm.style.color = '#FFF';
-    isDark = true;
+    library.isDark = true;
 }
 
 function lightMode(header, body){
@@ -78,7 +96,7 @@ function lightMode(header, body){
     });
     bookForm.style.backgroundColor = '#FFFBFB';
     bookForm.style.color = '#000';
-    isDark = false;
+    library.isDark = false;
 }
 
 // Check wether the user clicked btnAdd or inside/outside the form
@@ -127,15 +145,16 @@ function handleSubmit(e){
         pages.value = '';
         status.checked = false;    
     }
+    library.saveLocal();
     showBooks();
 }
 
-
 function showBooks(){
     grid.innerHTML = '';
+    library.saveLocal();
     library.collection.forEach((book) => {
         grid.innerHTML += ` 
-            <div class="grid-book ${isDark ? 'dark' : 'light'}">
+            <div class="grid-book ${library.isDark ? 'dark' : 'light'}">
                 <h2>${book.title}</h2>
                 <h3>${book.author}</h3>
                 <h4>${book.pages}</h4>
@@ -155,6 +174,7 @@ function showBooks(){
     const btnRemove = document.querySelectorAll('.btn-remove');
     btnRemove.forEach((btn) => btn.addEventListener('click', handleRemove));        
 }
+showBooks();
 
 function handleStatus(e){
     const id = e.target.classList[3];
