@@ -38,12 +38,12 @@ class Library {
         localStorage.setItem("myData", myData);
     }
     
-    restoreLocal(){
+    restoreLocal(){                
         const myData = JSON.parse(localStorage.getItem('myData'));
-        this.collection = myData[0];
-        this.isDark = myData[1];
-        if(this.collection === null) this.collection = [];
-        if(this.isDark === null) this.isDark = false;
+        if(myData){
+            this.collection = myData[0];
+            this.isDark = myData[1];    
+        }
     }
 }
 
