@@ -31,7 +31,6 @@ class Library {
     getBook(id){
         return this.collection.find((book) => book.id == id);
     }
-
     
     saveLocal(){
         const data = [this.collection, this.isDark];
@@ -61,6 +60,8 @@ const aside = document.querySelector('aside');
 
 // Declare necessary variables
 const library = new Library();
+
+// Restore localStorage
 library.restoreLocal();
 library.isDark ? darkMode(header, body) : lightMode(header, body);
 
@@ -105,11 +106,6 @@ window.addEventListener('click', (e) => {
     else if(document.querySelector('body').contains(e.target)) closeForm();
 })
 
-
-btnAdd.addEventListener('click', () => {
-    openForm();
-});
-
 function openForm(){
     aside.classList.remove('not-active');
     aside.classList.add('overlay');
@@ -120,17 +116,26 @@ function closeForm(){
     aside.classList.remove('overlay');
 }
 
+// Capitalize first letter of any string
+function capitalize(name){
+    return name.toLowerCase()
+               .split(' ')
+               .map((w) => w.charAt(0).toUpperCase() + w.substring(1))
+               .join(' ');
+}
+
+// Handle the form values
 bookForm.addEventListener('submit', handleSubmit);
 
 function handleSubmit(e){
     e.preventDefault();
     
-    const title = e.target[0];
-    const author = e.target[1];
-    const pages = e.target[2];
-    const status = e.target[3];
+    const title = e.target[0].value;
+    const author = e.target[1].value;
+    const pages = e.target[2].value;
+    const status = e.target[3].checked;
 
-    const newBook = new Book(title.value, author.value, pages.value, status.checked);
+    const newBook = new Book(capitalize(title), capitalize(author), pages, status);
     const errMsg = document.querySelector('.err-msg');
     if(library.isInCollection(newBook)){
         errMsg.innerText = 'This book already exists in your library';
@@ -140,10 +145,10 @@ function handleSubmit(e){
         errMsg.classList.add('not-active');
         library.addBook(newBook);
         closeForm();
-        title.value = '';
-        author.value = '';
-        pages.value = '';
-        status.checked = false;    
+        e.target[0].value = '';
+        e.target[1].value = '';
+        e.target[2].value = '';
+        e.target[3].checked = false;    
     }
     library.saveLocal();
     showBooks();
@@ -157,7 +162,7 @@ function showBooks(){
             <div class="grid-book ${library.isDark ? 'dark' : 'light'}">
                 <h2>${book.title}</h2>
                 <h3>${book.author}</h3>
-                <h4>${book.pages}</h4>
+                <h4>${book.pages} pages</h4>
                 <button class="btn btn-status 
                     ${book.isRead ? 'status-read' : 'status-notread'}
                     ${book.id}
@@ -176,12 +181,14 @@ function showBooks(){
 }
 showBooks();
 
+// Handle book status/remove
 function handleStatus(e){
     const id = e.target.classList[3];
     const book = library.getBook(id);
     book.isRead ? book.isRead = false : book.isRead = true;
     showBooks();
 }
+
 function handleRemove(e){
     const id = e.target.classList[2];
     library.removeBook(id);
